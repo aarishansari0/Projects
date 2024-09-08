@@ -64,7 +64,7 @@ def ai_move():
     insert_move('o', best_move)
 
 #minimax
-def minimax(is_maximizing):
+def minimax(is_o_turn):
     if has_won('o'):
         return 10
     elif has_won('x'):
@@ -72,7 +72,7 @@ def minimax(is_maximizing):
     elif board_full():
         return 0
 
-    if is_maximizing:
+    if is_o_turn:
         best_score = -1000
         for key in range(9):
             if board[key] == ' ':
