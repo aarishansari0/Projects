@@ -41,7 +41,7 @@ def player_move():
 	while True:
 		try:
 			move = int(input("enter move: "))-1
-			if board[move]==' ':
+			if board[move]==' ' and move > 0:
 				board[move] = 'x'
 				break
 			else:
