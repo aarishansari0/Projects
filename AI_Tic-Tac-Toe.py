@@ -1,5 +1,3 @@
-
-
 #game board
 board = [' ']*9
 
@@ -41,11 +39,11 @@ def player_move():
 	while True:
 		try:
 			move = int(input("enter move: "))-1
-			if board[move]==' ' and move > 0:
+			if board[move]==' ' and move>=0:
 				board[move] = 'x'
 				break
 			else:
-				print("enter a balid number(0-8): ")
+				print("enter a balid number: ")
 		except:
 			print("enter a number ")
 
@@ -64,7 +62,7 @@ def ai_move():
     insert_move('o', best_move)
 
 #minimax
-def minimax(is_o_turn):
+def minimax(is_maximizing):
     if has_won('o'):
         return 10
     elif has_won('x'):
@@ -72,7 +70,7 @@ def minimax(is_o_turn):
     elif board_full():
         return 0
 
-    if is_o_turn:
+    if is_maximizing:
         best_score = -1000
         for key in range(9):
             if board[key] == ' ':
